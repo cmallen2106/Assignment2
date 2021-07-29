@@ -66,9 +66,20 @@ public class Figures {
 			System.out.println("Please select an option: "); 
 		}
 		
+		//printBox method
+		public static void printBox(int size) {
+			for (int row = 1; row <= size; row++) {
+				System.out.print("X");
+			}
+		}
+		
 	}
+	
+	//printDiamond method
+	
 	
 	//Close scanner
 	scan.close(); 
 
 }
+
