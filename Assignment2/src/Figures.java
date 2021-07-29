@@ -8,6 +8,12 @@ public class Figures {
 
 	public static void main(String[] args) {
 		
+		//Assignment Heading
+		System.out.println("Programing Fundamentals");
+		System.out.println("NAME: Christina Sosa");
+		System.out.println("PROGRAMMING ASSIGNMENT 2");
+		System.out.println();
+		
 		//Create Scanner to read user input
 		Scanner scan = new Scanner (System.in); 
 		
@@ -22,13 +28,16 @@ public class Figures {
 		
 		//If the user enters a number that is not odd, ask him/her to reenter the number until it is odd.
 		while (size % 2 ==0) {
+			System.out.println();
 			System.out.println("Invalid figure size - must be an odd number");
+			System.out.println(); 
 			System.out.println("Renter the size of the figure: "); 
 			size = scan.nextInt(); 
 		}
 		
 		//Enter a loop in which you will display a menu of choices (1-4) and wait for user input
 		while (hasNotQuit == true) {
+			System.out.println();
 			printMenu(); 
 			menuSelect = scan.nextInt(); 
 			System.out.println();
@@ -61,11 +70,12 @@ public class Figures {
 		
 		//printMenu method
 		private static void printMenu() {
-			System.out.println("MENU");
+			System.out.println("MENU: ");
 			System.out.println("1. Print box");
 			System.out.println("2. Print diamond"); 
 			System.out.println("3. Print X"); 
 			System.out.println("4. Quit program"); 
+			System.out.println();
 			System.out.println("Please select an option: "); 
 		}
 		
@@ -79,54 +89,50 @@ public class Figures {
 			}
 		}
 		
-		public static void printDiamond(int size){
-		
-			//Shape will be executed in a top and bottom half
-		
-			{ 
-		        int i, j, k = 0; 
-		      
-		       //top half diamond
-		        for (i = 1; i <= size; i++) { 
-		      
-		            for (j = 1; j <= size - i; j++) { 
-		                System.out.print(" "); 
-		            } 
-		      
-		            while (k != (2 * i - 1)) { 
-		                if (k == 0 || k == 2 * i - 2) 
-		                    System.out.print("X"); 
-		                else
-		                    System.out.print(" "); 
-		                k++; 
-		            } 
-		            k = 0; 
-		      
-		            System.out.println(); 
-		        } 
-		        
-		        size--; 
-		      
-		        // bottom half diamond
-		        for (i = size; i >= 1; i--) { 
-		      
-		            for (j = 0; j <= size - i; j++) { 
-		                System.out.print(" "); 
-		            } 
-		      
-		            k = 0; 
-		            while (k != (2 * i - 1)) { 
-		                if (k == 0 || k == 2 * i - 2) 
-		                    System.out.print("X"); 
-		                else
-		                    System.out.print(" "); 
-		                k++; 
-		            } 
-		            System.out.println(); 
-		        } 
-		    } 
+		public static void printDiamond(int size) {
 
-}
+			int i;
+			int j;
+			int k;
+		    k = ((size + 1) / 2); 
+
+			// first half of diamond
+			for (i = 1; i <= k; i++) { 
+				for (j = 1; j <= (k - i); j++) {
+					System.out.print(" ");
+				}
+				if (i == 1) {
+					System.out.print("XX");
+				} else {
+					System.out.print("X"); 
+
+					for (j = 1; j <= 2 * i - 3; j++) {
+						System.out.print(" ");
+					}
+					System.out.print(" X"); 
+				}
+				System.out.println(); 
+			}
+
+			// Second half of diamond
+			for (i = k + 1; i < size + 1; i++) {
+				for (j = 1; j <= i - k; j++) {
+					System.out.print(" ");
+				}
+				if (i == (size + 1) - 1) {
+					System.out.print("XX");
+				} else {
+					System.out.print("X"); 
+
+					for (j = 1; j <= 2 * ((size + 1) - i) - 3; j++) {
+						System.out.print(" ");
+					}
+					System.out.print(" X"); 
+				}
+				System.out.println(); 
+			}
+
+		}
 		
 		private static void printX(int size)
 		//Split into 3 sections to make the X
